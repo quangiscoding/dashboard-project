@@ -56,32 +56,10 @@ export function UserDropdown() {
         {/* Nhóm tài khoản cá nhân */}
         <DropdownMenuGroup>
           <UserDropdownItem href="/profile" icon={User} label="Profile" />
-
-          {user.role === "ADMIN" && (
-            <UserDropdownItem
-              href="/billing"
-              icon={CreditCard}
-              label="Billing"
-            />
-          )}
-
-          <UserDropdownItem
-            href="/subscription"
-            icon={Sparkles}
-            label="Subscription"
-          />
-        </DropdownMenuGroup>
-
-        <DropdownMenuSeparator />
-
-        {/* Nhóm Workspace */}
-        <DropdownMenuGroup>
-          <UserDropdownItem href="/team" icon={Users} label="Team" />
           <UserDropdownItem href="/settings" icon={Settings} label="Settings" />
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
-
         {/* Nút Đăng xuất */}
         <DropdownMenuItem
           className="text-destructive focus:text-destructive cursor-pointer"
