@@ -1,6 +1,8 @@
 import { Home, Inbox, Calendar, Search, Settings } from "lucide-react";
 import Link from "next/link";
 
+import { cn } from "@/lib/utils";
+import { UserAvatar } from "@/features/user";
 import {
   Sidebar,
   SidebarHeader,
@@ -9,9 +11,12 @@ import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarGroupContent,
+  SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
+
+import { useUser } from "@/features/user/hooks/use-user";
 
 const items = [
   {
@@ -42,9 +47,20 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const { isLoading, user } = useUser();
+  if (isLoading || !user) return null;
   return (
     <Sidebar>
-      <SidebarHeader></SidebarHeader>
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton>
+              <UserAvatar className="h-6 w-6" />
+              <span>{user.name}</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>

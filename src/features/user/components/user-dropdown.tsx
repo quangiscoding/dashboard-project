@@ -29,7 +29,7 @@ export function UserDropdown() {
           />
         }
       >
-        <UserAvatar name={user.name} src={user.avatarUrl} />
+        <UserAvatar />
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className="w-fit">

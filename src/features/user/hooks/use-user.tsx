@@ -1,6 +1,10 @@
 import { MOCK_USER } from "../mocks/user.mock";
+import { type User } from "../types/";
 
-export function useUser() {
+type UseUserReturn =
+  { user: User; isLoading: false } | { user: null; isLoading: true };
+
+export function useUser(): UseUserReturn {
   // In dev / offline mode, return mock data instantly
   if (process.env.NODE_ENV === "development") {
     return {
