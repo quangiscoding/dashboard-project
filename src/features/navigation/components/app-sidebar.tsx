@@ -1,7 +1,14 @@
-import { Home, Inbox, Calendar, Search, Settings } from "lucide-react";
+import {
+  Home,
+  Inbox,
+  Calendar,
+  Search,
+  Settings,
+  User,
+  ChevronUp,
+} from "lucide-react";
 import Link from "next/link";
 
-import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/features/user";
 import {
   Sidebar,
@@ -14,7 +21,14 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import { useUser } from "@/features/user/hooks/use-user";
 
@@ -50,7 +64,7 @@ export function AppSidebar() {
   const { isLoading, user } = useUser();
   if (isLoading || !user) return null;
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -61,6 +75,7 @@ export function AppSidebar() {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+      <SidebarSeparator />
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
@@ -80,7 +95,26 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter></SidebarFooter>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={
+                  <SidebarMenuButton>
+                    <UserAvatar /> <ChevronUp className="ml-auto" />
+                  </SidebarMenuButton>
+                }
+              />
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem>Account</DropdownMenuItem>
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem>Sign out</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 }
