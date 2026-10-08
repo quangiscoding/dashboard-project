@@ -26,23 +26,23 @@ import { NavUserHeader } from "./nav-user-header";
 
 export function AppSidebar() {
   const { isLoading, user } = useUser();
-  const { state, setOpen, isMobile } = useSidebar();
+  // const { state, setOpen, isMobile } = useSidebar();
 
   if (isLoading || !user) return null;
 
-  const handleMouseEnter = () => {
-    if (!isMobile && state === "collapsed") setOpen(true);
-  };
+  // const handleMouseEnter = () => {
+  //   if (!isMobile && state === "collapsed") setOpen(true);
+  // };
 
-  const handleMouseLeave = () => {
-    if (!isMobile && state === "expanded") setOpen(false);
-  };
+  // const handleMouseLeave = () => {
+  //   if (!isMobile && state === "expanded") setOpen(false);
+  // };
 
   return (
     <Sidebar
       collapsible="icon"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      // onMouseEnter={handleMouseEnter}
+      // onMouseLeave={handleMouseLeave}
     >
       <NavUserHeader userName={user.name} />
       <SidebarSeparator />

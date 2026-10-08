@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ThemeToggler } from "@/features/theme";
 import { UserDropdown } from "@/features/user";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export function AppNavbar() {
   return (
-    <nav className="flex w-full items-center justify-end p-4">
+    <nav className="flex w-full items-center justify-between p-4">
+      <SidebarTrigger />
       {/* RIGHT */}
       <div className="flex items-center gap-4">
         <Link href="/">Dashboard</Link>
