@@ -4,8 +4,9 @@ import {
   Calendar,
   Search,
   Settings,
-  User,
   ChevronUp,
+  Plus,
+  Projector,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -17,6 +18,7 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupLabel,
+  SidebarGroupAction,
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuItem,
@@ -65,6 +67,7 @@ export function AppSidebar() {
   if (isLoading || !user) return null;
   return (
     <Sidebar collapsible="icon">
+      {/* Header */}
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -76,7 +79,9 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarSeparator />
+      {/* Content */}
       <SidebarContent>
+        {/* Application */}
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -94,7 +99,38 @@ export function AppSidebar() {
             ))}
           </SidebarGroupContent>
         </SidebarGroup>
+        {/* Projects */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Project</SidebarGroupLabel>
+          <SidebarGroupAction>
+            <Plus />
+            <span className="sr-only">Add project</span>
+          </SidebarGroupAction>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  render={
+                    <Link href="/#">
+                      <Projector /> See all projects
+                    </Link>
+                  }
+                />
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  render={
+                    <Link href="/#">
+                      <Plus /> Add Project
+                    </Link>
+                  }
+                />
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
+      {/* Footer */}
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
