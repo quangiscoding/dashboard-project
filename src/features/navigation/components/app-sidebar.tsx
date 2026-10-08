@@ -11,6 +11,7 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
@@ -48,6 +49,9 @@ export function AppSidebar() {
                       </Link>
                     }
                   />
+                  {item.title === "Inbox" && (
+                    <SidebarMenuBadge>36</SidebarMenuBadge>
+                  )}
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
