@@ -7,6 +7,7 @@ import {
   ChevronUp,
   Plus,
   Projector,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -33,6 +34,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { useUser } from "@/features/user/hooks/use-user";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const items = [
   {
@@ -129,6 +135,47 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        {/* Collapsible */}
+        <Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel
+              render={
+                <CollapsibleTrigger className="group text-sidebar-foreground/70 hover:text-sidebar-foreground flex w-full items-center justify-between text-xs font-medium">
+                  <span>Collapsible Group</span>
+                  <ChevronRight className="ml-auto size-4 transition-transform duration-200 group-data-open:rotate-90 group-data-panel-open:rotate-90" />
+                </CollapsibleTrigger>
+              }
+            />
+
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      render={
+                        <Link href="/#">
+                          <Projector />
+                          <span>See all projects</span>
+                        </Link>
+                      }
+                    />
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      render={
+                        <Link href="/#">
+                          <Plus />
+                          <span>Add Project</span>
+                        </Link>
+                      }
+                    />
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
       </SidebarContent>
       {/* Footer */}
       <SidebarFooter>
