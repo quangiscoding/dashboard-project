@@ -5,9 +5,7 @@ import { UserDropdown } from "@/features/user";
 
 export function AppNavbar() {
   return (
-    <nav className="flex w-full items-center justify-between p-4">
-      {/* LEFT */}
-      <SidebarTrigger />
+    <nav className="flex w-full items-center justify-end p-4">
       {/* RIGHT */}
       <div className="flex items-center gap-4">
         <Link href="/">Dashboard</Link>
