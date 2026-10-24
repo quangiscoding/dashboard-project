@@ -1,4 +1,5 @@
-import { AppBarChart } from "@/features/analytics";
+import { AppAreaChart, AppBarChart } from "@/features/analytics";
+import { AppPieChart } from "@/features/analytics";
 
 export default function HomePage() {
   return (
@@ -7,10 +8,12 @@ export default function HomePage() {
         <AppBarChart />
       </div>
       <div className="bg-primary-foreground rounded-lg p-4">Test</div>
-      <div className="bg-primary-foreground rounded-lg p-4">Test</div>
+      <div className="bg-primary-foreground rounded-lg p-4">
+        <AppPieChart />
+      </div>
       <div className="bg-primary-foreground rounded-lg p-4">Test</div>
       <div className="bg-primary-foreground rounded-lg p-4 lg:col-span-2 xl:col-span-2 2xl:col-span-2">
-        Test
+        <AppAreaChart />
       </div>
       <div className="bg-primary-foreground rounded-lg p-4">Test</div>
     </div>
