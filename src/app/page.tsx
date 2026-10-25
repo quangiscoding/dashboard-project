@@ -1,5 +1,10 @@
 import { AppAreaChart, AppBarChart } from "@/features/analytics";
 import { AppPieChart } from "@/features/analytics";
+import {
+  ActivityCard,
+  popularContent,
+  latestTransactions,
+} from "@/features/activity";
 
 export default function HomePage() {
   return (
@@ -7,7 +12,9 @@ export default function HomePage() {
       <div className="bg-primary-foreground rounded-lg p-4 lg:col-span-2 xl:col-span-2 2xl:col-span-2">
         <AppBarChart />
       </div>
-      <div className="bg-primary-foreground rounded-lg p-4">Test</div>
+      <div>
+        <ActivityCard items={popularContent} title="Popular Content" />
+      </div>
       <div className="bg-primary-foreground rounded-lg p-4">
         <AppPieChart />
       </div>
@@ -15,7 +22,9 @@ export default function HomePage() {
       <div className="bg-primary-foreground rounded-lg p-4 lg:col-span-2 xl:col-span-2 2xl:col-span-2">
         <AppAreaChart />
       </div>
-      <div className="bg-primary-foreground rounded-lg p-4">Test</div>
+      <div>
+        <ActivityCard items={latestTransactions} title="Latest Transactions" />
+      </div>
     </div>
   );
 }
